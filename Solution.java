@@ -1,35 +1,33 @@
-package bai3;
+package bai2;
 
-class Node
-{
+
+class Node{
     int data;
     Node next;
-    Node(int d) {data = d; next = null; }
+
+    Node(int x){
+        data = x;
+        next = null;
+    }
 }
 
 class Solution {
+    // Function to insert a node at the end of the linked list.
+    Node insertAtEnd(Node head, int x) {
+        // code here
+        Node newNode = new Node(x);
 
-    // Function to find the data of kth node from
-    // the end of a linked list.
-    int getKthFromLast(Node head, int k) {
-        // Your code here
-        Node fast = head;
-        Node slow = head;
-
-
-        for (int i = 0; i < k; i++) {
-            if (fast == null){
-                return -1;
-            }
-            fast = fast.next;
+        if (head == null) {
+            return newNode;
         }
 
-
-        while (fast != null) {
-            fast = fast.next;
-            slow = slow.next;
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
         }
 
-        return slow != null ? slow.data : -1;
+        temp.next = newNode;
+
+        return head;
     }
 }

@@ -13,23 +13,23 @@ class Solution1 {
     // the end of a linked list.
     int getKthFromLast(Node head, int k) {
         // Your code here
-        Node fast = head;
-        Node slow = head;
+        Node temp = head;
+        Node temp1 = head;
 
-
+        
         for (int i = 0; i < k; i++) {
-            if (fast == null){
-                return -1;
+            if (temp == null){ 
+            return -1;
             }
-            fast = fast.next;
+            temp = temp.next;
         }
 
-
-        while (fast != null) {
-            fast = fast.next;
-            slow = slow.next;
+        
+        while (temp != null) {
+            temp = temp.next;
+            temp1 = temp1.next;
         }
 
-        return slow != null ? slow.data : -1;
+        return temp1 != null ? temp1.data : -1;
     }
 }
